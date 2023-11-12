@@ -19,15 +19,16 @@ initializeApp();
 const db = getFirestore();
 
 app.get("/products", async (req, res) => {
-    const data = await db.collection("products")
-                .get()
-                .then(function(query) {
-                    return {data: query.docs.map(doc => Object.assign(doc.data(), {id: doc.id}))};
-                });
-
+    //const data = await db.collection("products")
+    //            .get()
+    //            .then(function(query) {
+    //                return {data: query.docs.map(doc => Object.assign(doc.data(), {id: doc.id}))};
+    //            });
     res.set("Cache-Control", "public, max-age=300, s-maxage=43200");
     res.set("Content-Type", "application/json");
-    res.send(data)
+    res.send({data: [
+        {name: "shoe1"}
+    ]});
 });
 		
 const main = express();
