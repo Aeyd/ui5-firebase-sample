@@ -18,17 +18,14 @@ initializeApp();
 
 const db = getFirestore();
 
-app.get("/products", async (req, res) => {
-    //const data = await db.collection("products")
-    //            .get()
-    //            .then(function(query) {
-    //                return {data: query.docs.map(doc => Object.assign(doc.data(), {id: doc.id}))};
-    //            });
+app.get("/products", (req, res) => {
     res.set("Cache-Control", "public, max-age=300, s-maxage=43200");
     res.set("Content-Type", "application/json");
-    res.send({data: [
-        {name: "shoe1"}
-    ]});
+    res.send(db.collection("products")
+                .get()
+                .then(function(query) {
+                    return {data: query.docs.map(doc => Object.assign(doc.data(), {id: doc.id}))};
+                }));
 });
 		
 const main = express();
