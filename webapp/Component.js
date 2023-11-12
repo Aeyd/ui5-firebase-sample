@@ -13,7 +13,7 @@ sap.ui.define(["sap/ui/core/UIComponent", "sap/ui/Device", "./model/models"], fu
 			this.setModel(models.createDeviceModel(), "device");
 			this.setModel(models.getProducts(), "products");
 
-			console.log(this.getModel("products"));
+			console.log(this.getModel("products").getData());
 
 			// create the views based on the url/hash
 			this.getRouter().initialize();
