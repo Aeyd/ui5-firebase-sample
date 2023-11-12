@@ -3,7 +3,9 @@ sap.ui.define(["./BaseController", "sap/m/MessageBox"], function (BaseController
 
 	return BaseController.extend("com.palimedia.app.controller.Main", {
 		sayHello: function () {
-			MessageBox.show("Hello World!");
+			fetch("/api/products").then((data) => {
+				console.log(data);
+			});
 		}
 	});
 });
