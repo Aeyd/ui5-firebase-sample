@@ -12,8 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          touch service.json
-          echo SERVICE_KEY=${{ secrets.FIREBASE_SERVICE_ACCOUNT_TEST_FIREBASE_6EFD7 }} >> service.json
           npm install --save-dev @ui5/cli
           npm run build:opt
       - uses: FirebaseExtended/action-hosting-deploy@v0
