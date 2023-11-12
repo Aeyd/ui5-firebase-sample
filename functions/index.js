@@ -12,17 +12,17 @@ const { logger } = require("firebase-functions");
 const { initializeApp } = require('firebase-admin/app');
 const { db } = require("firebase-admin/firestore");
 
-const express = require('express');
+const express = require("express");
 const app = express();
 
 initializeApp();
 
-app.get('/products', (req, res) => {
+app.get("/products", async (req, res) => {
     const data = await db.collection("products").get();
     res.send(data)
-}
+});
 		
 const main = express();
-main.use('/api', app);
+main.use("/api", app);
 
 exports.main = functions.https.onRequest(main);
