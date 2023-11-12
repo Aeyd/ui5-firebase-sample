@@ -8,10 +8,13 @@
  */
 
 // The Cloud Functions for Firebase SDK to create Cloud Functions and triggers.
-const {logger} = require("firebase-functions");
-const {onRequest} = require("firebase-functions/v2/https");
-const {db} = require("firebase-admin/firestore");
-const app = require('fastify');  
+const { logger } = require("firebase-functions");
+const { onRequest } = require("firebase-functions/v2/https");
+const { initializeApp } = require('firebase-admin/app');
+const { db } = require("firebase-admin/firestore");
+const app = require("fastify");  
+
+initializeApp();
 
 app.get('api/products', async function (req, res) {
     const data = await db.collection("products").get();
