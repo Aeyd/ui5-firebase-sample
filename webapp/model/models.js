@@ -7,9 +7,9 @@ sap.ui.define(["sap/ui/model/json/JSONModel", "sap/ui/model/BindingMode", "sap/u
 			oModel.setDefaultBindingMode(BindingMode.OneWay);
 			return oModel;
 		},
-		getProducts: async function () {
-			const response = await fetch("/api/products");
-			let oModel = new JSONModel(response);
+		getProducts: function () {
+			let oModel = new JSONModel();
+			oModel.loadData("/api/products");
 			oModel.setDefaultBindingMode(BindingMode.OneWay);
 			return oModel;
 		}
