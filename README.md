@@ -1,14 +1,11 @@
-# UI5 Application com.palimedia.app
+# UI5 Firebase Sample App
 
-Insert the purpose of this project and some interesting info here...
+Serverless web app using the UI5 framework, with an example serverside api. API triggers Firebase Functions to retrieve data from Firestore as JSON. This data is then cached client and serverside in a CDN and bound with a JSON model in the frontend.
 
 ## Description
 
-This app demonstrates a setup for developing UI5 applications.
-
-## Requirements
-
-Either [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/) for dependency management.
+This app demonstrates a setup for developing UI5 applications. 
+Hosted in firebase hosting with functions to access access to firestore.
 
 ## Preparation
 
@@ -19,6 +16,27 @@ npm install
 ```
 
 (To use yarn, just do `yarn` instead.)
+
+Also perform npm install in /functions directory
+
+## Firebase setup
+```sh
+npm install -g firebase-tools
+```
+
+Create a firebase project (Free Blaze Plan is required for Functions).
+
+```sh
+firebase login
+```
+
+If you want to emulate create API key and place key.json in project directory.
+
+To run a local cloud service emulator:
+```sh
+set GOOGLE_APPLICATION_CREDENTIALS=key.json
+firebase emulators:start
+```
 
 ## Run the App
 
