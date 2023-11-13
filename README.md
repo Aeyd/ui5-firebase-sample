@@ -38,6 +38,12 @@ set GOOGLE_APPLICATION_CREDENTIALS=key.json
 firebase emulators:start
 ```
 
+## Firebase deploy
+Github Action workflow provided in this repo only deploys hosting, to deploy from local run following command:
+```sh
+firebase deploy --only "hosting,functions"
+```
+
 ## Run the App
 
 Execute the following command to run the app locally for development in watch mode (the browser reloads the app automatically when there are changes in the source code):
