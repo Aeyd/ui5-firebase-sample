@@ -11,15 +11,16 @@ initializeApp();
 const db = getFirestore();
 
 // get all products from database
-// by specifying cache control response headers we can influence
-// cache lifetime on client (max-age) and CDN (s-maxage) in s
-// public needs to be set to also store dynamic content
 app.get("/products", (req, res) => {
     db.collection("products")
         .get()
         .then(function(query) {
+            // by specifying cache control response headers we can influence
+            // cache lifetime on client (max-age) and CDN (s-maxage) in s
+            // public needs to be set to also store dynamic content
             res.set("Cache-Control", "public, max-age=300, s-maxage=600");
             res.set("Content-Type", "application/json");
+            // we can't get json directly, so we have to crate an array of objects first
             res.send({data: query.docs.map(doc => Object.assign(doc.data(), {id: doc.id}))});
         });
 });

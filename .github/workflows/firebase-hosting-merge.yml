@@ -18,5 +18,6 @@ jobs:
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_TEST_FIREBASE_6EFD7 }}'
+          target: functions
           channelId: live
           projectId: test-firebase-6efd7
