@@ -106,6 +106,18 @@ npm run lint
 
 (Again, when using yarn, do `yarn lint` instead.)
 
+## Recreate project
+- https://www.npmjs.com/package/create-easy-ui5
+```sh
+npm install easy-ui5
+npm init easy-ui5
+```
+- https://firebase.google.com/docs/cli?hl=de
+```sh
+npm install -g firebase-tools
+npm init firebase
+```
+
 ## License
 
 This project is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSE) file.
